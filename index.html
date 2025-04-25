@@ -2,56 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SprintBoard - Project Management Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SprintBoard - Trello Style Board</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>SprintBoard</h1> <br>
-    <p>A project management tool</p>
-  </header>
-<br> <br>
-  <main class="board">
-    <div class="column" id="todo">
+  <h1 class="app-title">SprintBoard</h1>
+  <div class="board"> <br> <br> <br>
+    <!-- To-Do Column -->
+    <div class="column">
       <div class="column-header">
-        <h2>To Do</h2>
-        <button onclick="openModal('todo')">+ Add</button>
+        <h2>To-Do</h2>
+        <button onclick="openModal('todo')">+ Add Task</button>
       </div>
-      <div class="task-list" id="todo-tasks"></div>
+      <div class="tasks" id="todoTasks"></div>
     </div>
 
-    <div class="column" id="in-progress">
+    <!-- In Progress Column -->
+    <div class="column">
       <div class="column-header">
         <h2>In Progress</h2>
-        <button onclick="openModal('in-progress')">+ Add</button>
+        <button onclick="openModal('inProgress')">+ Add Task</button>
       </div>
-      <div class="task-list" id="in-progress-tasks"></div>
+      <div class="tasks" id="inProgressTasks"></div>
     </div>
 
-    <div class="column" id="done">
+    <!-- Completed Column -->
+    <div class="column">
       <div class="column-header">
-        <h2>Done</h2>
-        <button onclick="openModal('done')">+ Add</button>
+        <h2>Completed</h2>
+        <button onclick="openModal('completed')">+ Add Task</button>
       </div>
-      <div class="task-list" id="done-tasks"></div>
+      <div class="tasks" id="completedTasks"></div>
     </div>
-  </main>
+  </div>
 
   <!-- Modal -->
-  <div class="modal" id="modal">
+  <div id="modal" class="modal">
     <div class="modal-content">
-      <h3>Add New Task</h3>
-      <input type="text" id="taskTitle" placeholder="Task title" />
-      <textarea id="taskDescription" placeholder="Description..."></textarea>
-      <label for="taskPriority">Priority:</label>
-      <select id="taskPriority">
-        <option value="Low">Low</option>
-        <option value="Medium" selected>Medium</option>
-        <option value="High">High</option>
+      <h3 id="modalTitle">Add Task</h3>
+      <label for="taskInput">Task Description:</label>
+      <input type="text" id="taskInput" placeholder="Enter task..." title="Task description" />
+      <label for="dueDateInput">Due Date:</label>
+      <input type="date" id="dueDateInput" title="Due date" />
+      <label for="priorityInput">Priority:</label>
+      <select id="priorityInput">
+        <option value="low">Low Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="high">High Priority</option>
       </select>
-      <div class="modal-actions">
-        <button onclick="addTask()">Add Task</button>
+      <div class="modal-buttons">
+        <button onclick="addTask()">Save</button>
         <button onclick="closeModal()">Cancel</button>
       </div>
     </div>
