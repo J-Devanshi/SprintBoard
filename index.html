@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SprintBoard - Project Management Tool</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>SprintBoard</h1> <br>
+    <p>A project management tool</p>
+  </header>
+<br> <br>
+  <main class="board">
+    <div class="column" id="todo">
+      <div class="column-header">
+        <h2>To Do</h2>
+        <button onclick="openModal('todo')">+ Add</button>
+      </div>
+      <div class="task-list" id="todo-tasks"></div>
+    </div>
+
+    <div class="column" id="in-progress">
+      <div class="column-header">
+        <h2>In Progress</h2>
+        <button onclick="openModal('in-progress')">+ Add</button>
+      </div>
+      <div class="task-list" id="in-progress-tasks"></div>
+    </div>
+
+    <div class="column" id="done">
+      <div class="column-header">
+        <h2>Done</h2>
+        <button onclick="openModal('done')">+ Add</button>
+      </div>
+      <div class="task-list" id="done-tasks"></div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h3>Add New Task</h3>
+      <input type="text" id="taskTitle" placeholder="Task title" />
+      <textarea id="taskDescription" placeholder="Description..."></textarea>
+      <label for="taskPriority">Priority:</label>
+      <select id="taskPriority">
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+      </select>
+      <div class="modal-actions">
+        <button onclick="addTask()">Add Task</button>
+        <button onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
